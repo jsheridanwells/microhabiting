@@ -16,22 +16,20 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.helloService.getHello().subscribe((res: Hello) => {
-    //   this.helloMessage = res.message;
-    // });
-    this.hellos = this.generateTestHellos();
+    this.getHellos();
   }
 
-  generateTestHellos(): Hello[] {
-    return [
-      new Hello('hello'),
-      new Hello('is it'),
-      new Hello('me you re'),
-      new Hello('looking for'),
-    ];
+  getHellos() {
+    this.helloService.getHellos().subscribe((res: Hello[]) => {
+      this.hellos = res;
+    });
   }
 
   addHello(msg: string): void {
-    this.hellos.push(new Hello(msg));
+    const hello = new Hello(msg);
+    this.helloService.postHello(hello).subscribe(res => {
+      this.getHellos();
+    })
   }
+
 }

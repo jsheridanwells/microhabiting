@@ -18,7 +18,12 @@ export class HelloService {
     private http: HttpClient
   ) { }
 
-  getHello(): Observable<Hello> {
-    return this.http.get<Hello>('http://localhost:3000/api/hello');
+  getHellos(): Observable<Hello[]> {
+    return this.http.get<Hello[]>('http://localhost:3000/api/hello');
+  }
+
+  postHello(hello: Hello): Observable<any> {
+    const url = `http://localhost:3000/api/hello`;
+    return this.http.post(url, hello);
   }
 }

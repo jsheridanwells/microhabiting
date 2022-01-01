@@ -10,7 +10,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "start:api": "nodemon --watch \"api/**\" --ext \"ts\" --exec \"ts-node ./api/server.ts\"",
-    "build:api": " tsc --project api/tsconfig.api.json"
+    "build:api": " tsc --project api/tsconfig.api.json",
+    "mongo": "docker-compose up"
   },
   "author": "jeremywells.io",
   "license": "ISC",
