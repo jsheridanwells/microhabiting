@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "baseUrl": "../",
+    "rootDir": "./",
+    "module": "CommonJS",
+    "target": "ESNext",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "outDir": "../dist/api",
+    "sourceMap": true,
+    "declaration": true,
+    "types": [
+      "node"
+    ],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "allowSyntheticDefaultImports": true
+  }
+}

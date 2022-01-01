@@ -1,0 +1,22 @@
+version: "3"
+services:
+  mongodb:
+    container_name: mh_db
+    image: mongo:latest
+    volumes:
+      - ./scripts/mongo/init/mongoInit.js:/docker-entrypoint-initdb.d/mongoInit.js:ro
+      - ./scripts/mongo/init:/home/mongodb
+#      - ./scripts/mongo/seed/:/home/mongodb/seed
+      - mh_data:/data/db
+    ports:
+      - "28017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=$MONGO_INITDB_ROOT_USERNAME
+      - MONGO_INITDB_ROOT_PASSWORD=$MONGO_INITDB_ROOT_PASSWORD
+      - APP_USER=$APP_USER
+      - APP_PWD=$APP_PWD
+      - DB_NAME=$DB_NAME
+      - DB_COLLECTION_NAME=$DB_COLLECTION_NAME
+      - MONGO_HOSTNAME=$MONGO_HOSTNAME
+volumes:
+  mh_data:

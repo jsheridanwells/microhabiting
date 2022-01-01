@@ -1,0 +1,7 @@
+<div *ngFor="let hello of hellos">
+  {{ hello.message }}
+</div>
+<input type="text" id="newHello" #newHello>
+<button (click)="addHello(newHello.value)">
+  Add a Hello
+</button>
